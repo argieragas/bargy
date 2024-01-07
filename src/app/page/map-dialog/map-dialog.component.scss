@@ -1,0 +1,21 @@
+.map-container {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border: 1px solid black;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.none{
+  display: none;
+}
+
+.block{
+  display: block;
+}

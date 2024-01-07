@@ -1,0 +1,85 @@
+<h2 mat-dialog-title>{{title}}</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="flex justify-between">
+    <mat-form-field class="w-[49%]">
+      <mat-label>Type</mat-label>
+      <mat-select [(ngModel)]="caseData.type" (selectionChange)="changeType()" [(value)]="selectedType">
+        <mat-option [value]="option" *ngFor="let option of caseType">{{ option }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="w-[49%]">
+      <mat-label>Case Title</mat-label>
+      <mat-select [(ngModel)]="caseData.title" [(value)]="selectedTitle">
+        <mat-option [value]="option" *ngFor="let option of selectedTypeValue">{{ option }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field class="w-[100%]">
+      <mat-label>Choose a date</mat-label>
+      <input matInput [matDatepicker]="datepicker" [(ngModel)]="caseData.schedule">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+      <mat-datepicker #datepicker>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <span class="text-[#333] dark:text-[#ccc]">Complainant Details</span>
+  <div class="grid grid-cols-3 gap-4">
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput [(ngModel)]="caseData.complainantfName">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Middle name</mat-label>
+      <input matInput [(ngModel)]="caseData.complainantmName">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last name</mat-label>
+      <input matInput [(ngModel)]="caseData.complainantlName">
+    </mat-form-field>
+  </div>
+  <mat-form-field class="w-[100%]">
+    <mat-label>Address</mat-label>
+    <input matInput [(ngModel)]="caseData.complainantAddress" (click)="openMap('complainant')">
+  </mat-form-field>
+
+  <span class="text-[#333] dark:text-[#ccc]">Complaint Details</span>
+  <div class="grid grid-cols-3 gap-4">
+    <mat-form-field>
+      <mat-label>First name</mat-label>
+      <input matInput #fname [(ngModel)]="caseData.complaintfName">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Middle name</mat-label>
+      <input matInput [(ngModel)]="caseData.complaintmName">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last name</mat-label>
+      <input matInput [(ngModel)]="caseData.complaintlName">
+    </mat-form-field>
+  </div>
+  <mat-form-field class="w-[100%]">
+    <mat-label>Address</mat-label>
+    <input matInput [(ngModel)]="caseData.complaintAddress" (click)="openMap('complaint')">
+  </mat-form-field>
+  <mat-form-field class="w-[100%]">
+    <mat-label>Incident Location</mat-label>
+    <input matInput [(ngModel)]="caseData.location" (click)="openMap('incident')">
+  </mat-form-field>
+  <mat-form-field class="w-[100%]">
+    <mat-label>Details of report</mat-label>
+    <textarea matInput #details rows="5" [(ngModel)]="caseData.details" placeholder="Ex. He theft my bag..."></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button class="submit" (click)="submit()" [style.display]="title == 'View Case' ? 'none':'block'" cdkFocusInitial>Submit</button>
+</mat-dialog-actions>

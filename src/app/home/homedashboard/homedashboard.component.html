@@ -1,0 +1,41 @@
+<div class="flex">
+  <div class="h-[100vh] w-[40%] p-3">
+    <div class="flex">
+      <button (click)="openDialog('150ms', '150ms', 0)" class="m-1 w-[100px] p-1 bg-sky-300 dark:bg-sky-400 rounded-sm dark:text-slate-100">Login</button>
+      <button (click)="openDialog('150ms', '150ms', 1)" class="m-1 w-[100px] p-1 bordered rounded-sm dark:text-slate-100">Sign up</button>
+    </div>
+    <p class="text-xl font-semibold text-slate-900 w-[100%] text-center mt-5">KATARUNGAN PAMBARANGAY PORTAL WITH MAPPING</p>
+    <p class="text-justify text-slate-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, sed molestias.
+      Itaque, fugiat vero? Reprehenderit dolorem porro ducimus quod obcaecati aut commodi magni,
+      excepturi, eveniet nemo vitae harum sed iste.</p>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-10">
+
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef> Year </th>
+        <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cases">
+        <th mat-header-cell *matHeaderCellDef> Number of cases </th>
+        <td mat-cell *matCellDef="let element"> {{element.case}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="report">
+        <th mat-header-cell *matHeaderCellDef> Number of reports </th>
+        <td mat-cell *matCellDef="let element"> {{element.report}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="h-[100vh] w-[60%] map-container">
+    <div *ngIf="open" id="map" leaflet [leafletOptions]="options"
+    (leafletMapReady)="onMapReady($event)"></div>
+    <div id="tabular" class="float-right text-slate-950 p-4 z-50 mt-[-83px]">
+      <button class="p-3 button marker text-slate-50" [class]="!heatEvent ? 'bg-slate-400 dark:bg-slate-600':'bg-blue-600' " (click)="addMarkers()">Marker</button>
+      <button class="p-3 button heat text-slate-50" [class]="heatEvent ? 'bg-slate-400 dark:bg-slate-600':'bg-blue-600' " (click)="addHeatLayer(true)">Heat map</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<h2 class="dark:text-slate-100 text-slate-800 mb-2">REPORTED INCIDENT IN BARANGAY DAHICAN</h2>
+<div class="w-[100%] flex justify-between">
+  <button type="button" mat-button (click)="generatePDF()" class="custom-btn">
+    <mat-icon class="mr-1">launch</mat-icon>
+    Export
+  </button>
+  <!-- <button type="button" mat-button *ngIf="data.user.position == 'admin'" (click)="openDialog('Add Report', 0)" class="custom-btn">
+    <mat-icon class="mr-1">person_add</mat-icon>
+    Add Report
+  </button> -->
+</div>
+
+<mat-form-field class="mt-5">
+  <mat-label>Filter</mat-label>
+  <span matPrefix><mat-icon class="ml-1">search</mat-icon></span>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+</mat-form-field>
+
+<div class="mat-elebation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="no">
+      <th mat-header-cell *matHeaderCellDef> Case No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.case_number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="complainant">
+      <th mat-header-cell *matHeaderCellDef> Complainant </th>
+      <td mat-cell *matCellDef="let element"> {{element.complainant}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="respondent">
+      <th mat-header-cell *matHeaderCellDef> Respondent </th>
+      <td mat-cell *matCellDef="let element"> {{element.respondent}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef> Case title </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action_taken">
+      <th mat-header-cell *matHeaderCellDef> Action taken </th>
+      <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

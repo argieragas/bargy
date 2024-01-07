@@ -1,0 +1,53 @@
+@use '@angular/material' as mat;
+
+
+@include mat.core();
+
+// Define a dark theme
+$dark-theme: mat.define-dark-theme((
+ color: (
+   primary: mat.define-palette(mat.$pink-palette),
+   accent: mat.define-palette(mat.$blue-grey-palette),
+ ),
+  // Only include `typography` and `density` in the default dark theme.
+  typography: mat.define-typography-config(),
+  density: 0,
+));
+
+// Define a light theme
+$light-theme: mat.define-light-theme((
+ color: (
+   primary: mat.define-palette(mat.$indigo-palette),
+   accent: mat.define-palette(mat.$pink-palette),
+ ),
+));
+
+.dark{
+  @include mat.all-component-colors($dark-theme);
+}
+
+.light{
+  @include mat.all-component-colors($light-theme);
+}
+
+@import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
+@import "../node_modules/leaflet/dist/leaflet.css";
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.leaflet-control-geocoder>button {
+  -webkit-appearance: button!important;
+  background-color: transparent;
+  background-image: url('assets/img/geocoder.png')!important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "../node_modules/leaflet-control-geocoder/dist/Control.Geocoder.css";
+@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '@fortawesome/fontawesome-free/scss/solid.scss';
+@import '@fortawesome/fontawesome-free/scss/regular.scss';
+@import '@fortawesome/fontawesome-free/scss/brands.scss';
+

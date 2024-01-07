@@ -1,0 +1,46 @@
+<h2 class="dark:text-slate-100 text-slate-800 mb-2">LIST OF OFFICIALS IN BARANGAY DAHICAN</h2>
+<div class="w-[100%] flex justify-between">
+  <button type="button" mat-button (click)="generatePDF()" class="custom-btn">
+    <mat-icon class="mr-1">launch</mat-icon>
+    Export
+  </button>
+</div>
+
+
+<mat-form-field class="mt-5">
+  <mat-label>Filter</mat-label>
+  <span matPrefix><mat-icon class="ml-1">search</mat-icon></span>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+</mat-form-field>
+
+<div class="mat-elebation-z8">
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> Position </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="committee">
+      <th mat-header-cell *matHeaderCellDef> Committee </th>
+      <td mat-cell *matCellDef="let element"> {{element.committee}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

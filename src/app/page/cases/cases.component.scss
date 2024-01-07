@@ -1,0 +1,41 @@
+.custom-btn{
+  background-color: rgb(29 78 216)!important;
+  color: rgb(247, 247, 247)!important
+}
+
+.mat-accent{
+  --mdc-icon-button-icon-color: #607d8b!important;
+  --mat-mdc-button-persistent-ripple-color: #607d8b!important;
+  --mat-mdc-button-ripple-color: rgba(96, 125, 139, 0.1)!important;
+}
+
+.mat-primary{
+  --mdc-icon-button-icon-color: #e91e63!important;
+  --mat-mdc-button-persistent-ripple-color: #e91e63!important;
+  --mat-mdc-button-ripple-color: rgba(233, 30, 99, 0.1)!important
+}
+.example-container {
+  max-width: 100%;
+  overflow: auto;
+}
+
+table {
+  width: 800px;
+}
+
+td.mat-column-star {
+  width: 20px;
+  padding-right: 8px;
+}
+
+th.mat-column-position, td.mat-column-position {
+  padding-left: 8px;
+}
+
+.mat-mdc-table-sticky-border-elem-right {
+  border-left: 1px solid #e0e0e0;
+}
+
+.mat-mdc-table-sticky-border-elem-left {
+  border-right: 1px solid #e0e0e0;
+}

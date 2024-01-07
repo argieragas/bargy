@@ -1,0 +1,31 @@
+.map-container {
+  position: absolute;
+  top: 110px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.legend {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.none{
+  display: none;
+}
+
+.block{
+  display: block;
+}
+
+.leaflet-control-container .leaflet-top {
+  top: auto;
+  bottom: 10px;
+}

@@ -1,0 +1,45 @@
+.map-container{
+  border: 1px solid gray;
+}
+
+.bordered{
+  border: 1px solid rgb(125, 211, 252);
+}
+
+.legend {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.none{
+  display: none;
+}
+
+.block{
+  display: block;
+}
+
+.leaflet-control-container .leaflet-top {
+  top: auto;
+  bottom: 10px;
+}
+.button {
+  position: absolute;
+  top: 50px;
+  padding: 10px;
+  z-index: 400;
+}
+
+.marker{
+  right: 20px;
+}
+
+.heat{
+  right: 90px;
+}

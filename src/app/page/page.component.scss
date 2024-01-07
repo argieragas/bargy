@@ -1,0 +1,29 @@
+.sidenav-content{
+  background-color: #303030;
+}
+.mat-drawer-container{
+  background-color: #30303000;
+}
+
+.sidenav-title{
+  text-align: center;
+}
+
+.font-medium>li{
+  padding: 0 1cm;
+}
+
+::-webkit-scrollbar{
+  z-index: 1000;
+}
+.front{
+  z-index: 9999;
+}
+
+.m0{
+  margin: 0!important;
+}
+
+.text-white-important{
+  color: white !important;
+}

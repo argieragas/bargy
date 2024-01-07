@@ -1,0 +1,192 @@
+<h2 mat-dialog-title>{{ dialog_title }}</h2>
+<mat-dialog-content class="mat-typography">
+  <mat-form-field class="w-[100%]">
+    <mat-label>Reference</mat-label>
+    <mat-select [(ngModel)]="caseData.reference">
+      <mat-option [value]="option" *ngFor="let option of referenceType">{{ option }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="flex justify-between">
+    <mat-form-field class="w-[49%]">
+      <mat-label>Case no.</mat-label>
+      <input matInput [(ngModel)]="caseData.case_number">
+    </mat-form-field>
+    <mat-form-field class="w-[49%]">
+      <mat-label>Action taken</mat-label>
+      <mat-select [(ngModel)]="caseData.action">
+        <mat-option [value]="option" *ngFor="let option of actionType">{{ option }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="flex justify-between">
+    <mat-form-field class="w-[49%]">
+      <mat-label>Date of filing</mat-label>
+      <input matInput [(ngModel)]="caseData.date_of_filing" [matDatepicker]="date_filing">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="date_filing"></mat-datepicker-toggle>
+      <mat-datepicker #date_filing>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="w-[49%]">
+      <mat-label>Date of action taken</mat-label>
+      <input matInput [(ngModel)]="caseData.date_of_action" [matDatepicker]="date_action">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="date_action"></mat-datepicker-toggle>
+      <mat-datepicker #date_action>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="flex justify-between">
+    <mat-form-field class="w-[49%]">
+      <mat-label>Official receipt number</mat-label>
+      <input matInput [(ngModel)]="caseData.official_receipt">
+    </mat-form-field>
+    <mat-form-field class="w-[49%]">
+      <mat-label>Date of filing motion for execution</mat-label>
+      <input matInput [(ngModel)]="caseData.date_of_filing_motion" [matDatepicker]="date_filing_execution">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="date_filing_execution"></mat-datepicker-toggle>
+      <mat-datepicker #date_filing_execution>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="flex justify-between">
+    <mat-form-field class="w-[49%]">
+      <mat-label>Date of hearing of motion for execution</mat-label>
+      <input matInput [(ngModel)]="caseData.date_of_hearing_motion" [matDatepicker]="date_hearing_execution">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="date_hearing_execution"></mat-datepicker-toggle>
+      <mat-datepicker #date_hearing_execution>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="w-[49%]">
+      <mat-label>Date of issuance of notice for execution</mat-label>
+      <input matInput [(ngModel)]="caseData.date_of_issuance" [matDatepicker]="date_issuance">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="date_issuance"></mat-datepicker-toggle>
+      <mat-datepicker #date_issuance>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="flex justify-between">
+    <mat-form-field class="w-[49%]">
+      <mat-label>Nature of case filed</mat-label>
+      <mat-select [(ngModel)]="caseData.nature">
+        <mat-option [value]="option" *ngFor="let option of nature">{{ option }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="w-[49%]">
+      <mat-label>Execution</mat-label>
+      <mat-select [(ngModel)]="caseData.execution">
+        <mat-option [value]="option" *ngFor="let option of execution">{{ option }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="flex justify-between">
+    <mat-form-field class="w-[49%]">
+      <mat-label>Date summons issued</mat-label>
+      <input matInput [(ngModel)]="caseData.date_summons" [matDatepicker]="date_summons">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="date_summons"></mat-datepicker-toggle>
+      <mat-datepicker #date_summons>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="w-[49%]">
+      <mat-label>Status</mat-label>
+      <mat-select [(ngModel)]="caseData.status">
+        <mat-option [value]="option" *ngFor="let option of status">{{ option }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="flex justify-between">
+    <mat-form-field class="w-[49%]">
+      <mat-label>Date of 1st hearing</mat-label>
+      <input matInput [(ngModel)]="caseData.first_hearing" [matDatepicker]="first_hearing">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="first_hearing"></mat-datepicker-toggle>
+      <mat-datepicker #first_hearing>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="w-[49%]">
+      <mat-label>Date of final hearing</mat-label>
+      <input matInput [(ngModel)]="caseData.final_hearing" [matDatepicker]="final_hearing">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="final_hearing"></mat-datepicker-toggle>
+      <mat-datepicker #final_hearing>
+        <mat-datepicker-actions>
+          <button mat-button matDatepickerCancel>Cancel</button>
+          <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+        </mat-datepicker-actions>
+      </mat-datepicker>
+    </mat-form-field>
+  </div>
+  <mat-form-field class="w-[100%]">
+    <mat-label>Date of final hearing</mat-label>
+    <input matInput [(ngModel)]="caseData.date_of_agreement" [matDatepicker]="agreement">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="agreement"></mat-datepicker-toggle>
+    <mat-datepicker #agreement>
+      <mat-datepicker-actions>
+        <button mat-button matDatepickerCancel>Cancel</button>
+        <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+      </mat-datepicker-actions>
+    </mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="w-[100%]">
+    <mat-label>Complainant name</mat-label>
+    <input matInput [(ngModel)]="caseData.complainant">
+  </mat-form-field>
+  <mat-form-field class="w-[100%]">
+    <mat-label>Address</mat-label>
+    <input matInput [(ngModel)]="caseData.complainantAddress">
+  </mat-form-field>
+  <mat-form-field class="w-[100%]">
+    <mat-label>Respondent</mat-label>
+    <input matInput [(ngModel)]="caseData.respondent">
+  </mat-form-field>
+  <mat-form-field class="w-[100%]">
+    <mat-label>Address</mat-label>
+    <input matInput [(ngModel)]="caseData.respondentAddress">
+  </mat-form-field>
+  <mat-form-field class="w-[100%]">
+    <mat-label>Case title</mat-label>
+    <input matInput [(ngModel)]="caseData.title" #title>
+  </mat-form-field>
+  <mat-form-field class="w-[100%]">
+    <mat-label>Location of barangay</mat-label>
+    <input matInput [(ngModel)]="caseData.location" (click)="openMap()">
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button class="submit" (click)="submit()" [style.display]="title == 'View Case' ? 'none':'block'" cdkFocusInitial>Submit</button>
+</mat-dialog-actions>
